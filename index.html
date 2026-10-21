@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6258e8">
+  <title>Pixogram Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section id="authScreen" class="auth-screen">
+    <div class="auth-card">
+      <div class="logo">C</div>
+      <h1>Pixogram</h1>
+      <p>Messaging that brings people together.</p>
+
+      <form id="authForm">
+        <input id="displayName" placeholder="Your name (for signup)" maxlength="60">
+        <input id="email" type="email" placeholder="Email address" required>
+        <input id="password" type="password" placeholder="Password" minlength="6" required>
+
+        <button id="authSubmit" type="submit">Sign in</button>
+      </form>
+
+      <button id="toggleAuth" class="text-button">
+        Need an account? Sign up
+      </button>
+
+      <p id="authError" class="error"></p>
+    </div>
+  </section>
+
+  <main id="messenger" class="messenger hidden">
+
+    <aside class="sidebar">
+      <header class="brand">
+        <div class="logo small-logo">C</div>
+        <h2>Connect</h2>
+        <button id="themeBtn" title="Toggle theme">🌙</button>
+      </header>
+
+      <div class="my-profile">
+        <div id="myAvatar" class="avatar">ME</div>
+        <div>
+          <strong id="myName">My Account</strong>
+          <small>Signed in</small>
+        </div>
+        <button id="logoutBtn" title="Sign out">↪</button>
+      </div>
+
+      <input id="userSearch" class="search" placeholder="Find users by email">
+
+      <h3 class="section-heading">CONTACTS</h3>
+      <div id="contactList" class="contact-list"></div>
+    </aside>
+
+    <section class="conversation">
+      <header class="conversation-header">
+        <button id="backBtn" class="back-button">←</button>
+        <div id="chatAvatar" class="avatar">?</div>
+
+        <div class="chat-heading">
+          <h3 id="chatName">Select a contact</h3>
+          <small id="chatStatus">Choose someone to start chatting</small>
+        </div>
+
+        <button id="voiceCallBtn" title="Voice call">📞</button>
+        <button id="videoCallBtn" title="Video call">🎥</button>
+      </header>
+
+      <div id="messages" class="messages">
+        <div class="welcome">
+          <div class="welcome-icon">💬</div>
+          <h2>Welcome to Connect</h2>
+          <p>Choose a contact to begin your conversation.</p>
+        </div>
+      </div>
+
+      <div id="typingIndicator" class="typing"></div>
+
+      <form id="messageForm" class="composer">
+        <button id="attachBtn" type="button" title="Attach a file">📎</button>
+
+        <input id="fileInput" type="file"
+          accept="image/*,video/*,audio/*,.pdf,.doc,.docx,.txt"
+          hidden>
+
+        <input id="messageInput"
+          placeholder="Write a message..."
+          maxlength="4000"
+          autocomplete="off">
+
+        <button id="recordBtn" type="button" title="Record voice message">🎙️</button>
+        <button type="submit" class="send-button">Send ➤</button>
+      </form>
+
+      <div id="statusMessage" class="status-message"></div>
+    </section>
+  </main>
+
+  <dialog id="callDialog" class="call-dialog">
+    <h2 id="callTitle">Call</h2>
+    <p id="callStatus">Preparing call...</p>
+    <video id="remoteVideo" autoplay playsinline></video>
+    <video id="localVideo" autoplay playsinline muted></video>
+    <button id="endCallBtn">End call</button>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
