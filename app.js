@@ -7,7 +7,16 @@ import {
   serverTimestamp, doc, setDoc, getDoc,
   where, getDocs, limit, ref, uploadBytes, getDownloadURL
 } from "./firebase.js";
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    console.log("Login form submitted");
+    
+    // Run your actual authentication code here.
+});
 const $ = id => document.getElementById(id);
 
 let signupMode = false;
@@ -443,4 +452,21 @@ $("recordBtn").addEventListener("click", async () => {
   } catch (error) {
     showStatus("Microphone permission denied or unavailable.");
   }
+});const loginForm = document.getElementById("loginForm");
+const message = document.getElementById("message");
+
+loginForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (!email || !password) {
+        message.textContent = "Please enter your email and password.";
+        return;
+    }
+
+    message.textContent = "The Sign In button is working!";
+    
+    // Add your actual authentication code here.
 });
